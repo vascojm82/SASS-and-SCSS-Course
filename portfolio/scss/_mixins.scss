@@ -1,0 +1,33 @@
+@mixin warning{
+  background-color: orange;
+  color: #fff;
+}
+                  //Variable Argument
+@mixin box-shadow($shadows...){ //More than one shadow get passed as a parameter
+  box-shadow: $shadows;
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+}
+
+@mixin large-text{
+  font: {
+    size: 22px;
+    weight: bold;
+  }
+}
+
+@mixin rounded($radius: 6px){     //6px default value, otherwise use what's passed in by the caller
+  border-radius: $radius;
+}
+
+@mixin box($radius: 6px, $border: 1px solid #000){    //6px, 1px solid #000 default values, otherwise use what's passed in by the caller
+  @include rounded($radius);
+  border: $border;
+}
+
+@mixin fancy-links{
+  a{
+    font-style: italic;
+    text-decoration: none;
+  }
+}

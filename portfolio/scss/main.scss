@@ -1,0 +1,66 @@
+@import "variables";   //Import partial file, No need to add the underscore or file extension
+@import "mixins";
+
+@include fancy-links;       //Include mixin at the global(root) level
+
+body {
+  font-family: $text-font;
+  color: $text-color;
+}
+
+h1, h2, h3, h4 {
+  font-family: $headline-font;
+}
+
+h2{
+  @include large-text;
+}
+
+p {
+  font-family: $text-font;
+}
+
+a {
+  color: $link-color;
+}
+
+.warning-button{
+  @include warning;
+  padding: 8px 12px;
+}
+
+#header {
+  @include box($border: 1px solid #fff);    //values will be, argument1: 6px(default in mixin), argument2: '1px solid #fff'
+  @include box-shadow(2px 0px 4px #999, 1px 1px 6px $secondary-color);    //You can set multiple shadows on an element with box-shadow
+  height: $header-height;
+  background-color: $theme-color;
+
+  #main-menu {
+    li{
+      display: inline;
+    }
+    a{
+      color: $menu-item-color;
+    }
+  }
+
+  #logo {
+
+  }
+}
+
+#main {
+  width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+  #content {
+  }
+
+  #sidebar {
+  }
+}
+
+#footer {
+  height: $footer-height;
+  background-color: $ternary-color;
+}
